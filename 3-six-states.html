@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Шесть состояний · Карманный самопсихолог · @HD_Yulia</title>
+<meta name="description" content="Скорая эмоциональная помощь: тревога, вина, обида, злость, стыд, страх. Распознай и проживи за 5 минут.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#FBF6F0; --bg2:#EEE0D2; --card:#FFFFFF; --ink:#3B2E2A; --muted:#8E7E76;
+  --rose:#C0795D; --rose-d:#A65F44; --plum:#5E3B4E; --gold:#D9A86C;
+  --line:#EADFD3; --shadow:0 18px 50px -24px rgba(94,59,42,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Manrope',-apple-system,system-ui,sans-serif;color:var(--ink);
+  background:linear-gradient(160deg,var(--bg1),var(--bg2));min-height:100vh;padding:18px 14px 60px}
+.wrap{max-width:580px;margin:0 auto}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.brand{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rose-d);font-weight:600;text-align:center;margin-bottom:6px}
+.kicker{display:inline-block;background:#F4E7DF;color:var(--rose-d);font-weight:700;font-size:.88rem;padding:7px 15px;border-radius:99px;margin-bottom:12px;line-height:1.32;max-width:92%}
+header{text-align:center;padding:12px 6px 16px}
+h1{font-size:2.5rem;font-weight:700;line-height:1.05;color:var(--plum)}
+header p{color:var(--muted);margin-top:10px;font-size:.98rem;max-width:400px;margin-inline:auto}
+.card{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:20px 18px;margin-bottom:16px;border:1px solid rgba(255,255,255,.6)}
+.ask{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--plum);text-align:center;margin-bottom:4px}
+.asksub{text-align:center;color:var(--muted);font-size:.86rem;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.emo{border:1px solid var(--line);border-radius:18px;padding:16px 12px;cursor:pointer;text-align:center;transition:.18s;background:#FCF9F5;position:relative;overflow:hidden}
+.emo:hover{transform:translateY(-2px);box-shadow:0 14px 26px -16px rgba(94,59,42,.6)}
+.emo .ic{font-size:1.7rem;display:block;margin-bottom:5px}
+.emo .nm{display:block;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--plum);line-height:1.1}
+.emo .sub{display:block;font-size:.74rem;color:var(--muted);margin-top:4px;line-height:1.3}
+.scanBtn{margin-top:12px;width:100%;border:1.5px dashed var(--rose);background:#FCF6F1;color:var(--rose-d);
+  font-family:inherit;font-weight:600;font-size:.92rem;border-radius:16px;padding:14px;cursor:pointer}
+.scanBtn:hover{background:#F8EEE6}
+/* screens */
+.screen{display:none}.screen.active{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.back{display:inline-flex;align-items:center;gap:6px;border:none;background:none;color:var(--rose-d);font-family:inherit;font-weight:600;font-size:.9rem;cursor:pointer;margin-bottom:8px;padding:4px 0}
+.stateHead{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.stateHead .ic{font-size:2.2rem}
+.stateHead h2{font-size:2.1rem;color:var(--plum);line-height:1}
+.desc{font-size:.96rem;color:var(--ink);background:#FBF3EE;border-radius:14px;padding:13px 15px;margin-bottom:14px}
+.qblock{margin-bottom:12px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.qblock summary{list-style:none;cursor:pointer;padding:13px 15px;font-weight:700;display:flex;justify-content:space-between;align-items:center;font-size:.98rem}
+.qblock summary::-webkit-details-marker{display:none}
+.qblock summary .tg{color:var(--rose-d);font-size:.78rem;font-weight:600}
+.qblock[open] summary{border-bottom:1px solid var(--line);background:#FCF9F5}
+.qblock .qsub{font-size:.78rem;color:var(--muted);font-weight:500;display:block;margin-top:2px}
+.qlist{padding:6px 15px 14px;display:flex;flex-direction:column;gap:9px}
+.qlist li{list-style:none;font-size:.92rem;padding-left:20px;position:relative;line-height:1.45}
+.qlist li::before{content:'';position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.practice{background:linear-gradient(150deg,#F4EEF1,#FBF3EE);border-radius:16px;padding:16px;margin:14px 0}
+.practice .pt{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--plum);margin-bottom:6px}
+.practice p{font-size:.92rem}
+.meta{font-style:italic;color:var(--rose-d);font-family:'Cormorant Garamond',serif;font-size:1.15rem;border-left:3px solid var(--gold);padding:6px 0 6px 13px;margin:12px 0}
+.fact{font-size:.84rem;color:var(--muted);background:#FCF9F5;border-radius:12px;padding:12px 14px;margin-bottom:10px}
+.fact b{color:var(--ink)}
+.journal{width:100%;min-height:90px;border:1px solid var(--line);border-radius:14px;padding:12px;font-family:inherit;font-size:.92rem;resize:vertical;margin-top:4px;background:#fff}
+.jhint{font-size:.8rem;color:var(--muted);margin:10px 0 2px}
+/* scanner */
+.zone{border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:9px;cursor:pointer;transition:.15s;background:#FCF9F5}
+.zone:hover{border-color:var(--rose);background:#FBF3EE}
+.zone .zn{font-weight:700;font-size:.96rem}
+.zone .ze{font-size:.84rem;color:var(--muted);margin-top:2px}
+.zone .jump{font-size:.78rem;color:var(--rose-d);font-weight:600;margin-top:6px;display:inline-block}
+.cta{background:linear-gradient(150deg,var(--plum),#7A4D63);color:#fff;text-align:center;border:none}
+.cta h2{font-size:1.8rem;margin-bottom:8px}.cta p{opacity:.92;font-size:.94rem;max-width:400px;margin:0 auto 16px}
+.cta a{display:inline-block;background:var(--gold);color:#3B2E2A;font-weight:700;text-decoration:none;padding:13px 26px;border-radius:14px;font-size:1rem}
+.foot{text-align:center;font-size:.78rem;color:var(--muted);margin-top:10px}
+.aff{text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--plum);margin:8px 0}
+
+/* ============ ПРЕМИУМ-СЛОЙ ============ */
+html{scroll-behavior:smooth}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(38vw 38vw at 10% 6%, rgba(217,168,108,.26), transparent 68%),
+    radial-gradient(42vw 42vw at 92% 9%, rgba(192,121,93,.20), transparent 70%),
+    radial-gradient(48vw 48vw at 50% 104%, rgba(94,59,78,.17), transparent 72%);
+  animation:auraFloat 20s ease-in-out infinite alternate}
+@keyframes auraFloat{from{transform:translateY(0) scale(1)}to{transform:translateY(-2%) scale(1.05)}}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.32;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){body::before{animation:none}.card,header{animation:none}.cta a::after,.go::after{display:none}}
+header{animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) both}
+.card{animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) both;
+  border:1px solid rgba(255,255,255,.75)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 2px 6px -2px rgba(94,59,42,.06), 0 28px 60px -32px rgba(94,59,42,.5)!important}
+.card:nth-of-type(2){animation-delay:.05s}.card:nth-of-type(3){animation-delay:.1s}.card:nth-of-type(4){animation-delay:.15s}
+.brand{position:relative}
+.brand::before,.brand::after{content:"";display:inline-block;width:22px;height:1px;vertical-align:middle;margin:0 12px;background:linear-gradient(90deg,transparent,var(--gold))}
+.brand::after{background:linear-gradient(90deg,var(--gold),transparent)}
+.kicker{background:linear-gradient(180deg,#FBEFE6,#F3E1D3)!important;border:1px solid rgba(192,121,93,.28)!important;box-shadow:0 8px 20px -12px rgba(166,95,68,.5)!important}
+.fact .n,.prod .num{background:linear-gradient(135deg,#E7C078,#C0894A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.cta{position:relative;overflow:hidden;box-shadow:0 28px 64px -30px rgba(94,59,78,.85)!important}
+.cta::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 90% at 50% -10%,rgba(217,168,108,.28),transparent 70%)}
+.cta>*{position:relative;z-index:1}
+.cta a{background:linear-gradient(135deg,#EBC885,#D9A86C 55%,#C68B49)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 14px 30px -12px rgba(166,110,40,.65)!important}
+.cta a,.go{position:relative;overflow:hidden}
+.cta a::after,.go::after{content:"";position:absolute;top:-20%;left:-70%;width:45%;height:140%;transform:skewX(-22deg);pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);animation:sheen 5s ease-in-out infinite}
+@keyframes sheen{0%,58%{left:-70%}80%,100%{left:140%}}
+.go{box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 16px 34px -16px rgba(94,59,42,.72)!important}
+.prod{position:relative}
+.prod::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;
+  background:linear-gradient(135deg,rgba(217,168,108,0),rgba(217,168,108,0));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;transition:.35s}
+.prod:hover::after{background:linear-gradient(135deg,rgba(217,168,108,.85),rgba(192,121,93,.45),rgba(94,59,78,.3))}
+@media(pointer:fine){*::-webkit-scrollbar{width:10px}*::-webkit-scrollbar-track{background:transparent}
+  *::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--gold),var(--rose));border-radius:10px;border:3px solid transparent;background-clip:content-box}}
+/* ===================================== */
+
+/* ===== КОРОЛЕВСКАЯ ТЁМНАЯ ТЕМА ===== */
+:root{
+  --bg1:#1C1310;--bg2:#2E1A26;--card:#F7EFE4;--card2:#FBF5EC;--ink:#2C1D17;--muted:#9C887D;--line:#E6D8C6;
+  --plum:#6B2740;--rose:#B07A4A;--rose-d:#9A5A2C;--gold:#C29A3F;--gold-l:#E7CB80;--gold-d:#A87B2A;
+  --on:#EFE2D2;--on-muted:#C0B0A1;
+}
+body{background:linear-gradient(168deg,var(--bg1),var(--bg2))!important}
+body::before{background:
+  radial-gradient(40vw 40vw at 12% 4%,rgba(194,154,63,.20),transparent 64%),
+  radial-gradient(46vw 46vw at 90% 12%,rgba(138,47,68,.30),transparent 66%),
+  radial-gradient(54vw 54vw at 50% 104%,rgba(231,203,128,.10),transparent 70%)!important}
+.brand{color:var(--gold-l)!important}
+.kicker{background:linear-gradient(180deg,rgba(107,39,64,.55),rgba(58,22,38,.55))!important;border:1px solid rgba(231,203,128,.42)!important;color:var(--gold-l)!important}
+.card{background:linear-gradient(180deg,var(--card2),var(--card))!important;border:1px solid rgba(247,239,228,.12)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 30px 60px -34px rgba(0,0,0,.7)!important}
+.cta{background:linear-gradient(155deg,#3A1626,#20131A 70%,#2A1620)!important;border:1px solid rgba(231,203,128,.3)!important}
+.foot{color:var(--on-muted)!important;opacity:.7}
+#home header h1{color:var(--on)!important} #home header p{color:var(--on-muted)!important}
+.emo{background:var(--card2)!important;border:1px solid var(--line)!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="brand">@HD_Yulia · Самопсихолог</p>
+
+  <!-- ГЛАВНЫЙ ЭКРАН -->
+  <section class="screen active" id="home">
+    <header>
+      <div class="kicker">«Просто плохо», давит или штормит — и непонятно, что с тобой?</div>
+      <h1>Шесть состояний</h1>
+      <p>Когда накрыло и не хочется быть ни с кем — открой. Распознаешь, что чувствуешь, и пройдёшь шаг за шагом к себе. Ты не одна.</p>
+    </header>
+    <div class="card">
+      <div class="ask">Что ты сейчас чувствуешь?</div>
+      <div class="asksub">Не ищи идеальный ответ — выбери то, что ближе всего.</div>
+      <div class="grid" id="emoGrid"></div>
+      <button class="scanBtn" onclick="go('scan')">🌫 Не понимаю, что чувствую → пройти сканер</button>
+    </div>
+    <div class="card cta">
+      <h2 class="serif">Эмоции — не враги, а навигаторы</h2>
+      <p>Если одной тяжело или хочется большего контакта с собой — я рядом. Начнём с бесплатной диагностической сессии.</p>
+      <a id="tgLink1" href="#" target="_blank" rel="noopener">Написать в Telegram →</a>
+    </div>
+    <p class="foot">© Юлия · @HD_Yulia · «Шесть состояний». Это поддержка, а не замена терапии.</p>
+  </section>
+
+  <!-- ЭКРАН СОСТОЯНИЯ -->
+  <section class="screen" id="state">
+    <button class="back" onclick="go('home')">← все состояния</button>
+    <div class="card">
+      <div class="stateHead"><span class="ic" id="sIc"></span><h2 class="serif" id="sNm"></h2></div>
+      <div class="desc" id="sDesc"></div>
+      <div id="sQuestions"></div>
+      <div class="practice"><div class="pt" id="pTitle"></div><p id="pText"></p></div>
+      <div class="meta" id="sMeta"></div>
+      <div class="fact" id="sFact"></div>
+      <div class="jhint">📝 Если хочется — запиши, что откликнулось (сохранится только у тебя):</div>
+      <textarea class="journal" id="journal" placeholder="Первое, что всплывает…"></textarea>
+    </div>
+    <div class="card">
+      <p class="aff" id="sAff"></p>
+    </div>
+    <div class="card cta">
+      <h2 class="serif">Хочешь пройти глубже?</h2>
+      <p>На сессии мы пройдём это состояние вместе — мягко, телесно и по сути. Найдём формат, в котором тебе тепло и безопасно.</p>
+      <a id="tgLink2" href="#" target="_blank" rel="noopener">Написать мне →</a>
+    </div>
+  </section>
+
+  <!-- ЭКРАН СКАНЕРА -->
+  <section class="screen" id="scan">
+    <button class="back" onclick="go('home')">← назад</button>
+    <div class="card">
+      <div class="ask">Эмоциональный сканер</div>
+      <div class="asksub">Часто чувствуешь «сильно», но неясно. Найди, <b>где в теле</b> ощущается сильнее всего — это подскажет, что за чувство.</div>
+      <div id="zones"></div>
+    </div>
+  </section>
+</div>
+
+<script>
+const CONFIG = { telegram:"https://t.me/HD_Yulia" };
+['tgLink1','tgLink2'].forEach(id=>document.getElementById(id).href=CONFIG.telegram);
+
+const STATES = {
+ trevoga:{ic:'🌀',nm:'Тревога',aff:'Я дышу — значит, я в безопасности.',
+  desc:'Тревога — реакция на неопределённость, перегруз и невозможность всё контролировать. За ней часто: подавленный страх, «я не справлюсь», слишком большая ответственность, уязвимость. Тревога не хочет тебя разрушить — она хочет спасти. Просто делает это через сигнал «опасность!», даже когда её нет.',
+  son:['Где в теле я сейчас чувствую тревогу сильнее всего?','Когда я начинаю тревожиться — в ответ на что? (неопределённость, тишина, решения, конфликты)','Чего конкретно я боюсь потерять или не контролировать?'],
+  res:['Что из того, о чём я тревожусь, зависит от меня — а что нет?','Что уже стабильно и безопасно в моей жизни, даже если незаметно?','Что бы я сказала ребёнку, который чувствует то же? И могу ли сказать это себе?'],
+  glub:['Что в моей жизни сейчас слишком нестабильно — и почему это пугает?','Что мне даёт тревога — что она прикрывает или от чего отвлекает?','Чья тревога на самом деле звучит во мне — точно моя? (голос родителей, новостей, общества)'],
+  pt:'Дыхание-якорь 4-7-8',pText:'Вдох носом на 4 счёта → задержка на 7 → медленный выдох ртом на 8. Повтори 4 раза. Затем назови вслух 5 вещей, которые видишь, 4 — которые слышишь, 3 — которые можешь потрогать. Это возвращает мозг из режима «беги» в «я здесь».',
+  meta:'',fact:'Тревога — доминирование симпатической нервной системы и гиперактивация миндалины. Дыхание, движение и внимание к телу реально переключают мозг в режим безопасности (Porges, Siegel, Levine).'},
+
+ vina:{ic:'🪨',nm:'Вина',aff:'Я сделала лучшее из того, что знала тогда.',
+  desc:'Вина — это не просто «я что-то не так сделала». Часто это попытка сохранить связь, способ «контролировать» последствия, форма внутреннего наказания — а иногда замена боли, злости, бессилия и честных «нет». Вина говорит: «Ты для меня важна». Но застревая, она начинает разрушать тебя вместо того, чтобы что-то восстанавливать.',
+  son:['Как и где я ощущаю вину в теле — тяжесть, зажим, «накручивание»?','В чём конкретно я себя виню — и это реально было моё решение и влияние?','Если бы вина могла говорить — какой у неё голос и что бы она сказала?'],
+  res:['Чего я не позволяю себе — и поэтому «наказываю» себя виной?','Если бы я отпустила эту вину — кого или что пришлось бы отпустить вместе с ней?','Кому выгодно, чтобы я чувствовала вину? Кто «получает» от этого?'],
+  glub:['Что я сделала наилучшего, исходя из того, что знала и умела в тот момент?','Какие слова мне хочется услышать от кого-то — и могу ли я сказать их себе сама?','Что я могу сделать, чтобы восстановить связь или уважение — не из вины, а из зрелости и заботы?'],
+  pt:'Письмо зрелости',pText:'Положи руку на грудь и мысленно (или на бумаге) скажи себе той, что винит себя: «Ты сделала лучшее из возможного тем знанием и силами, что были тогда. Я тебя не бросаю». Отдели факт ошибки от оценки себя: ошибка ≠ «я плохая».',
+  meta:'',fact:'Здоровая вина активирует зоны сочувствия и стремление восстановить связь. Хроническая — снижает самооценку и усиливает внутреннего критика. Самосострадание и ясное «ошибка ≠ я плохой» восстанавливают баланс (Neff, Tangney, Siegel).'},
+
+ obida:{ic:'🧳',nm:'Обида',aff:'Мне важнее быть живой и свободной, чем правой.',
+  desc:'Обида — одно из самых «застревающих» состояний. Снаружи — будто раздражение или дистанция. Внутри — боль, чувство несправедливости, желание быть понятой и услышанной. Если её не разбирать, обида становится хроническим фоном, который влияет на отношения, самооценку и тело.',
+  son:['Что именно меня задело — слова, тон, поступок или то, что я ожидала?','Если бы моя обида была образом — это кто или что? (ребёнок, уставший зверёк, стена, шипы)','Что я на самом деле хотела получить от того человека — но не получила?'],
+  res:['Что мне сейчас важнее: быть правой или быть живой и свободной?','Есть ли что-то, за что я могу поблагодарить этот опыт — пусть не человека, а урок?','Что я могу вернуть себе, если перестану держаться за обиду: энергию, ясность, тепло, границы?'],
+  glub:['Что я не позволяю себе сказать напрямую — и зачем «говорю» это через обиду?','На кого я на самом деле обижаюсь — и кому это ещё адресовано?','Что я теряю, если отпущу обиду — и готова ли я на это?'],
+  pt:'Открыть чемодан',pText:'Выпиши на бумаге всё невысказанное тому человеку — без фильтра, не отправляя. «Я обиделась, когда… Я хотела… Мне нужно было…». Ты открываешь чемодан, который таскала, разбираешь его — и идёшь налегке себе навстречу, а не прочь от кого-то.',
+  meta:'Обида — как чемодан, который мы тащим, думая, что там что-то важное. Но внутри — боль и невыраженные слова. Его можно открыть, разобрать и идти налегке.',
+  fact:'Обида активирует те же зоны мозга, что и физическая боль (Eisenberger et al., 2003). Это реальная телесная боль. Но выражение чувств и осознание потребностей снижает её силу и переводит в исцеление.'},
+
+ zlost:{ic:'🔥',nm:'Злость',aff:'Моя злость охраняет мои границы.',
+  desc:'Злость и раздражение часто кажутся «плохими» — особенно если рядом злились разрушительно или злиться было нельзя. Но на самом деле злость — мощный сигнал о границах, потребностях и энергии. Главное — не воевать с ней, а услышать.',
+  son:['Где в теле живёт моя злость — и как она ощущается: жар, сжатие, напряжение?','На что я точно сейчас злюсь — на ситуацию, человека, себя, жизнь?','Что именно мне невыносимо — несправедливость, игнор, нарушение моих границ?'],
+  res:['Что я могу сделать с этой злостью — чтобы она стала моей силой, а не разрушением?','Как я могу выразить злость экологично — телесно, словами, через действие?','Что я могу себе разрешить, чтобы не накапливать раздражение?'],
+  glub:['Чего я давно не разрешаю себе и терплю — и злость говорит: «Хватит»?','На кого я на самом деле злюсь, но не позволяю себе это признать?','Какие границы я сама не отстаиваю — и злюсь за это на других или на себя?'],
+  pt:'Дать злости тело',pText:'Сильно сожми и резко разожми кулаки 10 раз. Топни. Выдохни со звуком «ха». Можно сжать полотенце или порычать в подушку. Когда напряжение спадёт — допиши: «Моя злость защищает ___». Ты — у руля этой энергии, а не пассажир.',
+  meta:'Злость — как внутренняя печка. Зажмёшь — сгорит всё внутри. Выплеснешь — обожжёшь других. Направишь — согреешься и двинешься.',
+  fact:'Злость мобилизует энергию и фокус. Подавленная (особенно у женщин, Nolen-Hoeksema, 2001) часто переходит в апатию, депрессию и психосоматику. Осознанная работа с ней повышает устойчивость и умение отстаивать границы.'},
+
+ styd:{ic:'🌑',nm:'Стыд',aff:'Я это чувствую. И я всё ещё достойна любви и принятия.',
+  desc:'Стыд — это не просто неловкость. Это одна из самых тяжёлых эмоций, потому что она касается не поведения («я сделала не так»), а личности («со мной что-то не так»). Стыд прячется под масками: угодничество, перфекционизм, изоляция, самокритика, тревожность. С ним важно обращаться не через силу, а через тёплое присутствие.',
+  son:['В каких ситуациях я чаще всего испытываю это чувство? Что у них общего?','Как стыд ощущается в теле? (тепло в лице, сжатие, желание исчезнуть)','Как я обычно себя веду, когда стыжусь — ухожу, оправдываюсь, замыкаюсь, нападаю на себя?'],
+  res:['Есть ли люди, которых я уважаю не за «идеальность», а за уязвимость и честность? Могу ли я быть такой?','Что я могу разрешить себе — даже если внутри ещё есть страх осуждения?','Какой голос я хочу вырастить внутри себя вместо обвинителя? Что он скажет мне сейчас?'],
+  glub:['Когда я впервые почувствовала, что «со мной что-то не так»? Кто дал мне это понять?','Какие стороны себя я прячу, кого стыжусь внутри — уязвимость, тело, желания, эмоции, ошибки?','Что во мне живое, но заморожено стыдом? Что я давно не позволяю себе делать, говорить, быть?'],
+  pt:'Снять вуаль',pText:'Положи ладонь на грудь, почувствуй тепло руки и скажи вслух: «Да, я это чувствую. Но я всё ещё достойна любви и принятия». Повтори 3 раза, медленнее с каждым разом. Стыд уходит не через силу, а через контакт и честность.',
+  meta:'Стыд — как чёрная вуаль на зеркале. Кажется, под ней что-то страшное. Но приподними её — там живой человек: чувствующий, ранимый, сильный. Не уродливый. Просто незащищённый.',
+  fact:'По данным Brené Brown (2012), стыд уходит не через подавление, а через контакт, эмпатию и честное признание. Поддерживающие отношения, терапия и самосострадание — ключевые ресурсы выхода из токсического стыда.'},
+
+ strah:{ic:'🌊',nm:'Страх',aff:'Я могу быть с этим — и идти дальше.',
+  desc:'Страх — эмоция про сохранение: «Я хочу, чтобы ты осталась в безопасности». Часто это попытка сохранить контроль, реакция на уязвимость, защита на случай боли и провала, а иногда — форма остановки, когда система не готова идти дальше. Но если страх становится постоянным, он мешает жить вместо того, чтобы защищать.',
+  son:['Чего я боюсь прямо сейчас? — действия, отказа, оценки, неизвестности, ошибки, боли?','Где я чувствую страх в теле: дрожь, холод, сжатие, тяжесть, внутренняя остановка?','Что я делаю, когда боюсь: замираю, ускоряюсь, контролирую, откладываю, отстраняюсь?'],
+  res:['Как я могу пойти навстречу страху — не на 100%, а на 5%? Что будет этим шагом?','Что я уже когда-то сделала, несмотря на страх — и это стало точкой роста?','Если бы рядом был кто-то поддерживающий — что бы он сказал мне? Могу ли я стать этим голосом для себя?'],
+  glub:['Когда я уже сталкивалась с чем-то подобным — и что тогда было слишком болезненно?','Что я боюсь потерять, если рискну: образ себя, стабильность, чужое одобрение?','Что я в себе считаю «недостаточно сильным», чтобы справиться с этим страхом?'],
+  pt:'Шаг на 5%',pText:'Не нужно прыгать в страх целиком. Назови одно крошечное действие навстречу — на 5%. Не «начать новую жизнь», а «написать одно сообщение», «открыть документ», «сказать одну фразу». Сделай только этот шаг сегодня. Контроль возвращается через маленькие действия.',
+  meta:'',fact:'Страх активирует миндалину — зону реакции на угрозу. Но осознанное проговаривание, телесные практики и поэтапные действия снижают её активность и возвращают контроль в префронтальную кору (LeDoux, Siegel, Porges).'}
+};
+
+const ORDER=['trevoga','vina','obida','zlost','styd','strah'];
+const SUBS={trevoga:'неопределённость, «не справлюсь»',vina:'«я виновата», самонаказание',obida:'застряла, не услышали',zlost:'нарушили границы',styd:'«со мной что-то не так»',strah:'остановка, «а вдруг»'};
+const grid=document.getElementById('emoGrid');
+ORDER.forEach(k=>{const s=STATES[k];const d=document.createElement('div');d.className='emo';
+  d.innerHTML='<span class="ic">'+s.ic+'</span><span class="nm">'+s.nm+'</span><span class="sub">'+SUBS[k]+'</span>';
+  d.onclick=()=>openState(k);grid.appendChild(d);});
+
+let curKey=null;
+function qBlock(title,sub,arr){
+  return '<details class="qblock"><summary><span>'+title+'<span class="qsub">'+sub+'</span></span><span class="tg">открыть</span></summary>'+
+    '<ul class="qlist">'+arr.map(q=>'<li>'+q+'</li>').join('')+'</ul></details>';
+}
+function openState(k){
+  curKey=k;const s=STATES[k];
+  document.getElementById('sIc').textContent=s.ic;
+  document.getElementById('sNm').textContent=s.nm;
+  document.getElementById('sDesc').textContent=s.desc;
+  document.getElementById('sQuestions').innerHTML=
+    qBlock('Сонастраивающие вопросы','мягко вернуться в контакт с собой',s.son)+
+    qBlock('Ресурсные вопросы','вернуть ощущение «я справлюсь»',s.res)+
+    qBlock('Глубинные вопросы','увидеть корень состояния',s.glub);
+  document.getElementById('pTitle').textContent='Практика · '+s.pt;
+  document.getElementById('pText').textContent=s.pText;
+  const m=document.getElementById('sMeta');
+  if(s.meta){m.style.display='block';m.textContent='«'+s.meta+'»';}else m.style.display='none';
+  document.getElementById('sFact').innerHTML='<b>Научный факт:</b> '+s.fact;
+  document.getElementById('sAff').textContent='«'+s.aff+'»';
+  // журнал
+  const j=document.getElementById('journal');
+  j.value=localStorage.getItem('hd_journal_'+k)||'';
+  j.oninput=()=>localStorage.setItem('hd_journal_'+k,j.value);
+  go('state');
+}
+
+/* СКАНЕР: зоны тела → вероятные состояния */
+const ZONES=[
+ {zn:'Горло, челюсть',ze:'Подавленная злость, сдержанный крик, страх «сказать», стыд',to:'zlost'},
+ {zn:'Грудная клетка',ze:'Тоска, вина, тревога, одиночество, сдержанные слёзы',to:'vina'},
+ {zn:'Живот',ze:'Тревога, страх, уязвимость, стыд, интуитивное «не хочу»',to:'trevoga'},
+ {zn:'Плечи, шея',ze:'Напряжение «надо тащить», вина, переответственность',to:'vina'},
+ {zn:'Спина',ze:'Усталость, перенапряжение, внутренний запрет на отдых',to:'trevoga'},
+ {zn:'Руки, кисти',ze:'Сдержанная агрессия, желание действовать',to:'zlost'},
+ {zn:'Ноги',ze:'Неуверенность, страх движения, застревание «не могу сдвинуться»',to:'strah'},
+ {zn:'Лицо, щёки (жар)',ze:'Стыд, желание исчезнуть, неловкость',to:'styd'},
+ {zn:'Голова',ze:'Зацикленность, перегруз, контроль, «всё в голове — а не в жизни»',to:'trevoga'}
+];
+const zb=document.getElementById('zones');
+ZONES.forEach(z=>{const d=document.createElement('div');d.className='zone';
+  d.innerHTML='<div class="zn">'+z.zn+'</div><div class="ze">'+z.ze+'</div><div class="jump">→ перейти к состоянию «'+STATES[z.to].nm+'»</div>';
+  d.onclick=()=>openState(z.to);zb.appendChild(d);});
+
+function go(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>

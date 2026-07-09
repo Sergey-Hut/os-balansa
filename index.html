@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ось баланса · Инструменты для себя · @HD_Yulia</title>
+<meta name="description" content="Три живых инструмента, чтобы вернуть энергию и опору: энергетический счёт, ось баланса, шесть состояний.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#FBF6F0; --bg2:#EEE0D2; --card:#FFFFFF; --ink:#3B2E2A; --muted:#8E7E76;
+  --rose:#C0795D; --rose-d:#A65F44; --plum:#5E3B4E; --gold:#D9A86C;
+  --line:#EADFD3; --shadow:0 18px 50px -24px rgba(94,59,42,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Manrope',-apple-system,system-ui,sans-serif;color:var(--ink);
+  background:linear-gradient(160deg,var(--bg1),var(--bg2));min-height:100vh;padding:22px 14px 60px}
+.wrap{max-width:600px;margin:0 auto}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.brand{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rose-d);font-weight:600;text-align:center;margin-bottom:6px}
+.kicker{display:inline-block;background:#F4E7DF;color:var(--rose-d);font-weight:700;font-size:.92rem;padding:8px 16px;border-radius:99px;margin-bottom:14px;line-height:1.32;max-width:90%}
+header{text-align:center;padding:14px 6px 22px}
+h1{font-size:2.9rem;font-weight:700;line-height:1.04;color:var(--plum)}
+.lead{color:var(--ink);margin-top:12px;font-size:1.05rem;max-width:440px;margin-inline:auto}
+.lead2{color:var(--muted);margin-top:8px;font-size:.92rem;max-width:430px;margin-inline:auto}
+.card{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:22px 20px;margin-bottom:16px;border:1px solid rgba(255,255,255,.6)}
+.prod{display:block;text-decoration:none;color:inherit;transition:.18s;position:relative;overflow:hidden}
+.prod:hover{transform:translateY(-3px);box-shadow:0 24px 50px -22px rgba(94,59,42,.55)}
+.prod .ic{font-size:2rem}
+.prod .num{position:absolute;top:14px;right:18px;font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--line);font-weight:700;line-height:1}
+.prod h2{font-size:1.85rem;color:var(--plum);margin:6px 0 4px}
+.prod p{font-size:.95rem;color:var(--ink);max-width:90%}
+.prod .for{font-size:.82rem;color:var(--rose-d);margin-top:10px;font-weight:600}
+.prod .open{display:inline-block;margin-top:12px;font-weight:700;color:var(--rose-d)}
+.prod .open::after{content:' →'}
+.steps{font-size:.92rem;color:var(--muted);text-align:center}
+.cta{background:linear-gradient(150deg,var(--plum),#7A4D63);color:#fff;text-align:center;border:none}
+.cta h2{font-size:2.1rem;margin-bottom:10px}
+.cta p{opacity:.92;font-size:.98rem;max-width:440px;margin:0 auto 18px}
+.cta a{display:inline-block;background:var(--gold);color:#3B2E2A;font-weight:700;text-decoration:none;padding:14px 30px;border-radius:14px;font-size:1.05rem;box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
+.gift{font-size:.86rem;opacity:.85;margin-top:14px}
+.about{display:flex;gap:14px;align-items:flex-start}
+.about .av{font-size:2.4rem;line-height:1}
+.about p{font-size:.92rem;color:var(--ink)}
+.about b{color:var(--plum)}
+.foot{text-align:center;font-size:.78rem;color:var(--muted);margin-top:10px}
+.divider{text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--plum);margin:6px 0 16px}
+
+/* ============ ПРЕМИУМ-СЛОЙ ============ */
+html{scroll-behavior:smooth}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(38vw 38vw at 10% 6%, rgba(217,168,108,.26), transparent 68%),
+    radial-gradient(42vw 42vw at 92% 9%, rgba(192,121,93,.20), transparent 70%),
+    radial-gradient(48vw 48vw at 50% 104%, rgba(94,59,78,.17), transparent 72%);
+  animation:auraFloat 20s ease-in-out infinite alternate}
+@keyframes auraFloat{from{transform:translateY(0) scale(1)}to{transform:translateY(-2%) scale(1.05)}}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.32;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){body::before{animation:none}.card,header{animation:none}.cta a::after,.go::after{display:none}}
+header{animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) both}
+.card{animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) both;
+  border:1px solid rgba(255,255,255,.75)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 2px 6px -2px rgba(94,59,42,.06), 0 28px 60px -32px rgba(94,59,42,.5)!important}
+.card:nth-of-type(2){animation-delay:.05s}.card:nth-of-type(3){animation-delay:.1s}.card:nth-of-type(4){animation-delay:.15s}
+.brand{position:relative}
+.brand::before,.brand::after{content:"";display:inline-block;width:22px;height:1px;vertical-align:middle;margin:0 12px;background:linear-gradient(90deg,transparent,var(--gold))}
+.brand::after{background:linear-gradient(90deg,var(--gold),transparent)}
+.kicker{background:linear-gradient(180deg,#FBEFE6,#F3E1D3)!important;border:1px solid rgba(192,121,93,.28)!important;box-shadow:0 8px 20px -12px rgba(166,95,68,.5)!important}
+.fact .n,.prod .num{background:linear-gradient(135deg,#E7C078,#C0894A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.cta{position:relative;overflow:hidden;box-shadow:0 28px 64px -30px rgba(94,59,78,.85)!important}
+.cta::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 90% at 50% -10%,rgba(217,168,108,.28),transparent 70%)}
+.cta>*{position:relative;z-index:1}
+.cta a{background:linear-gradient(135deg,#EBC885,#D9A86C 55%,#C68B49)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 14px 30px -12px rgba(166,110,40,.65)!important}
+.cta a,.go{position:relative;overflow:hidden}
+.cta a::after,.go::after{content:"";position:absolute;top:-20%;left:-70%;width:45%;height:140%;transform:skewX(-22deg);pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);animation:sheen 5s ease-in-out infinite}
+@keyframes sheen{0%,58%{left:-70%}80%,100%{left:140%}}
+.go{box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 16px 34px -16px rgba(94,59,42,.72)!important}
+.prod{position:relative}
+.prod::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;
+  background:linear-gradient(135deg,rgba(217,168,108,0),rgba(217,168,108,0));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;transition:.35s}
+.prod:hover::after{background:linear-gradient(135deg,rgba(217,168,108,.85),rgba(192,121,93,.45),rgba(94,59,78,.3))}
+@media(pointer:fine){*::-webkit-scrollbar{width:10px}*::-webkit-scrollbar-track{background:transparent}
+  *::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--gold),var(--rose));border-radius:10px;border:3px solid transparent;background-clip:content-box}}
+/* ===================================== */
+
+/* ===== КОРОЛЕВСКАЯ ТЁМНАЯ ТЕМА ===== */
+:root{
+  --bg1:#1C1310;--bg2:#2E1A26;--card:#F7EFE4;--card2:#FBF5EC;--ink:#2C1D17;--muted:#9C887D;--line:#E6D8C6;
+  --plum:#6B2740;--rose:#B07A4A;--rose-d:#9A5A2C;--gold:#C29A3F;--gold-l:#E7CB80;--gold-d:#A87B2A;
+  --inner:#8A4A66;--inner-bg:#F1E7EC;--outer:#B07A3E;--outer-bg:#F6ECDD;
+  --empty:#A98E86;--empty-bg:#EEE5E1;--over:#8A2F44;--over-bg:#F2E3E5;--bal:#C29A3F;
+  --on:#EFE2D2;--on-muted:#C0B0A1;
+}
+body{background:linear-gradient(168deg,var(--bg1),var(--bg2))!important}
+body::before{background:
+  radial-gradient(40vw 40vw at 12% 4%,rgba(194,154,63,.20),transparent 64%),
+  radial-gradient(46vw 46vw at 90% 12%,rgba(138,47,68,.30),transparent 66%),
+  radial-gradient(54vw 54vw at 50% 104%,rgba(231,203,128,.10),transparent 70%)!important}
+.brand{color:var(--gold-l)!important}
+.kicker{background:linear-gradient(180deg,rgba(107,39,64,.55),rgba(58,22,38,.55))!important;border:1px solid rgba(231,203,128,.42)!important;color:var(--gold-l)!important}
+.card{background:linear-gradient(180deg,var(--card2),var(--card))!important;border:1px solid rgba(247,239,228,.12)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 30px 60px -34px rgba(0,0,0,.7)!important}
+.cta{background:linear-gradient(155deg,#3A1626,#20131A 70%,#2A1620)!important;border:1px solid rgba(231,203,128,.3)!important}
+.foot{color:var(--on-muted)!important;opacity:.7}
+#heroH1{color:var(--on)!important} #heroLead,.lead{color:var(--on-muted)!important} .lead2{color:var(--on-muted)!important;opacity:.65}
+.divider{color:var(--gold-l)!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="brand">@HD_Yulia · Самопсихолог для женщин</p>
+  <header>
+    <div class="kicker" id="kicker">Ты держишь всех. А кто держит тебя?</div>
+    <h1 id="heroH1">Вернуть себе энергию и опору</h1>
+    <p class="lead" id="heroLead">Дом, дети, работа, близкие — всё на тебе. А к вечеру нет сил даже на себя, и будто никто не замечает. Три инструмента, чтобы мягко вернуть энергию и опору — без «просто соберись».</p>
+    <p class="lead2">Открываются прямо здесь, на телефоне. Ничего скачивать не нужно.</p>
+  </header>
+
+  <div class="divider">✦ Выбери, с чего начать ✦</div>
+
+  <a class="card prod" href="1-energy-account.html">
+    <span class="num">01</span>
+    <span class="ic">💰</span>
+    <h2 class="serif">Энергетический счёт</h2>
+    <p>Веди выписку по своей энергии, как по банковскому счёту: что наполняет, а что незаметно сливает. 3 минуты вечером — и видно, в плюсе ты живёшь или в долг.</p>
+    <div class="for">Если ты устала тащить всё на себе</div>
+    <span class="open">Открыть инструмент</span>
+  </a>
+
+  <a class="card prod" href="2-balance-axis.html">
+    <span class="num">02</span>
+    <span class="ic">⚖️</span>
+    <h2 class="serif">Ось баланса</h2>
+    <p>Опросник из 24 вопросов — и сразу видно твой главный перекос: какие сферы и конкретные области жизни просят внимания, какой архетип в перегрузе, куда вернуть энергию.</p>
+    <div class="for">Если много практик, а опоры всё нет</div>
+    <span class="open">Пройти опросник</span>
+  </a>
+
+  <a class="card prod" href="3-six-states.html">
+    <span class="num">03</span>
+    <span class="ic">🌀</span>
+    <h2 class="serif">Шесть состояний</h2>
+    <p>Скорая эмоциональная помощь: тревога, вина, обида, злость, стыд, страх. Когда «накрыло» — открой, пройди по вопросам и практике, вернись к себе.</p>
+    <div class="for">Когда внутри темно и штормит</div>
+    <span class="open">Открыть навигатор</span>
+  </a>
+
+  <div class="card cta">
+    <h2 class="serif">Дальше — вместе</h2>
+    <p>Эти инструменты показывают карту. Маршрут мы пройдём на бесплатной диагностической сессии — найдём формат, в котором тебе по-настоящему тепло и безопасно двигаться.</p>
+    <a id="tgLink" href="#" target="_blank" rel="noopener">Перейти в Telegram-группу →</a>
+    <div class="gift">🎁 Внутри — поддержка, практики и подсказка из Книги Перемен от бота.</div>
+  </div>
+
+  <div class="card about">
+    <span class="av">🌿</span>
+    <p>Меня зовут <b>Юлия</b>. Уже 8 лет я сопровождаю женщин в точке перемен — на стыке 14 техник и глубинной эмпатии. Мастер-коуч ICI, нейрокоуч, эксперт Human Design и Gene Keys, ведущая трансформационных игр. Я здесь, чтобы напомнить тебе: в тебе гораздо больше силы, чем ты привыкла думать.</p>
+  </div>
+
+  <p class="foot">© Юлия · @HD_Yulia. Это поддержка, а не замена психотерапии.</p>
+</div>
+<script>
+  const CONFIG = { telegram:"https://t.me/HD_Yulia" };
+  document.getElementById('tgLink').href = CONFIG.telegram;
+
+  // Версии под сегменты ЦА: ?seg=2 (массовый, по умолчанию) · ?seg=1 (премиум) · ?seg=5 (духовный поиск)
+  const SEGMENTS = {
+    '2':{kicker:'Ты держишь всех. А кто держит тебя?',h1:'Вернуть себе энергию и опору',lead:'Дом, дети, работа, близкие — всё на тебе. А к вечеру нет сил даже на себя, и будто никто не замечает. Три инструмента, чтобы мягко вернуть энергию и опору — без «просто соберись».'},
+    '1':{kicker:'Снаружи держишь всё. А внутри?',h1:'Опереться, а не только держать',lead:'Ты сильная, и у тебя получается. Но усталость копится, а показать её некому — «у тебя же всё хорошо». Три инструмента, чтобы наконец опереться на себя, а не только тащить всех.'},
+    '5':{kicker:'Много знаешь о себе — мало что меняется?',h1:'Заземлиться и вернуть опору',lead:'Курсы, практики, ретриты — а тревога остаётся, и опоры внутри всё нет. Эти инструменты дают не ещё одну теорию, а заземление: видно в цифрах, в теле, в конкретных шагах.'}
+  };
+  const seg = (function(){const p=new URLSearchParams(location.search).get('seg');return SEGMENTS[p]?p:'2';})();
+  const sg = SEGMENTS[seg];
+  document.getElementById('kicker').textContent = sg.kicker;
+  document.getElementById('heroH1').textContent = sg.h1;
+  document.getElementById('heroLead').textContent = sg.lead;
+  // прокидываем сегмент в ссылки на продукты, чтобы обёртка сохранялась
+  document.querySelectorAll('a.prod').forEach(a=>{ a.href = a.getAttribute('href').split('?')[0]+'?seg='+seg; });
+</script>
+</body>
+</html>
