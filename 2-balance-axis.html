@@ -233,7 +233,9 @@ header p,#heroSub{color:var(--on-muted);margin-top:8px;font-size:.98rem;max-widt
 .discHint{display:block;font-size:.82rem;color:var(--gold-d);font-weight:700;margin-top:4px}
 .disclosureBody{display:none;margin-top:14px}
 .disclosureBody.open{display:block;animation:fadeUp .45s cubic-bezier(.2,.7,.2,1) both}
-#heroSub{white-space:pre-line}
+#heroSub{max-width:440px;margin:8px auto 0;font-size:.95rem}
+#heroSub p{margin:0 0 .5em;color:var(--on-muted);line-height:1.48;max-width:none}
+#heroSub p:last-child{margin-bottom:0}
 .scaleVerdict{font-size:.9rem;line-height:1.5;color:var(--ink);max-width:420px;margin:2px auto 10px;padding-top:8px;border-top:1px dashed var(--line)}
 .scaleVerdict b{color:#7a6338;font-weight:600}
 /* ====== БЛОК-СИНТЕЗ: беру ⇄ отдаю ====== */
@@ -270,19 +272,13 @@ header p,#heroSub{color:var(--on-muted);margin-top:8px;font-size:.98rem;max-widt
       <div class="kicker" id="kicker">Снаружи ты держишь всё. А внутри?</div>
       <h1 id="heroH1">Куда уходит твоя сила</h1>
       <p class="brandtag">автоматическая диагностика «Ось баланса»</p>
-      <p id="heroSub">Ты вроде справляешься.
-Дом, дети, отношения, работа, планы.
-
-Но почему тогда всё чаще хочется, чтобы тебя просто никто не трогал?
-
-Почему раздражают даже близкие?
-Почему отдых не возвращает силы?
-И почему жизнь, которую ты так старалась построить, иногда совсем не радует?
-
-Возможно, дело в том, что твоя энергия каждый день уходит совсем не туда, куда ты думаешь.
-
-«Ось баланса» покажет, где именно ты теряешь себя:
-чего в твоей жизни стало слишком мало, а чего — слишком много.</p>
+      <div id="heroSub">
+        <p>Ты вроде справляешься.<br>Дом, дети, отношения, работа, планы.</p>
+        <p>Но почему тогда всё чаще хочется, чтобы тебя просто никто не трогал?</p>
+        <p>Почему раздражают даже близкие?<br>Почему отдых не возвращает силы?<br>И почему жизнь, которую ты так старалась построить, иногда совсем не радует?</p>
+        <p>Возможно, дело в том, что твоя энергия каждый день уходит совсем не туда, куда ты думаешь.</p>
+        <p>«Ось баланса» покажет, где именно ты теряешь себя:<br>чего в твоей жизни стало слишком мало, а чего — слишком много.</p>
+      </div>
     </header>
     <div class="card">
       <div class="facts">
@@ -447,7 +443,7 @@ const SEGMENTS = {
   const p=new URLSearchParams(location.search).get('seg'); const seg=SEGMENTS[p]?p:'2'; const s=SEGMENTS[seg];
   document.getElementById('kicker').textContent=s.kicker;
   document.getElementById('heroH1').textContent=s.h1;
-  document.getElementById('heroSub').textContent=s.sub;
+  document.getElementById('heroSub').innerHTML = s.sub.split('\n\n').map(function(b){ return '<p>'+b.replace(/\n/g,'<br>')+'</p>'; }).join('');
 })();
 
 /* ====== СОСТОЯНИЯ (технические ключи lack/balance/overload) ====== */
