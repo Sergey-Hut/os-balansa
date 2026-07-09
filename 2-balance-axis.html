@@ -39,7 +39,7 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif}
 .brand{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-l);font-weight:600;text-align:center;position:relative;width:fit-content;margin:0 auto 6px}
 .brand::before,.brand::after{content:"";display:inline-block;width:22px;height:1px;vertical-align:middle;margin:0 12px;background:linear-gradient(90deg,transparent,var(--gold))}
 .brand::after{background:linear-gradient(90deg,var(--gold),transparent)}
-header{text-align:center;padding:4px 6px 8px;animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) both}
+header{text-align:center;padding:4px 6px 4px;animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) both}
 .kicker{display:inline-block;background:linear-gradient(180deg,rgba(35,31,26,.6),rgba(23,17,14,.6));border:1px solid rgba(198,165,110,.42);
   color:var(--gold-l);font-weight:700;font-size:.88rem;padding:7px 16px;border-radius:99px;margin-bottom:8px;line-height:1.32;max-width:92%;backdrop-filter:blur(4px)}
 h1{font-size:2.6rem;font-weight:700;line-height:1.04;color:var(--on)}
@@ -50,7 +50,8 @@ header p,#heroSub{color:var(--on-muted);margin-top:8px;font-size:.98rem;max-widt
   animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) both}
 .card:nth-of-type(2){animation-delay:.05s}.card:nth-of-type(3){animation-delay:.1s}.card:nth-of-type(4){animation-delay:.15s}
 .screen{display:none}.screen.active{display:block}
-.facts{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:2px 0 14px}
+.facts{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:0 0 10px}
+#intro .card{padding-top:16px}
 .fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 16px;text-align:center;min-width:96px}
 .fact .n{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;background:linear-gradient(135deg,var(--gold-l),var(--gold-d));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .fact .l{font-size:.74rem;color:var(--muted)}
@@ -234,7 +235,7 @@ header p,#heroSub{color:var(--on-muted);margin-top:8px;font-size:.98rem;max-widt
 .disclosureBody{display:none;margin-top:14px}
 .disclosureBody.open{display:block;animation:fadeUp .45s cubic-bezier(.2,.7,.2,1) both}
 #heroSub{max-width:440px;margin:6px auto 0;font-size:.95rem}
-#heroSub p{margin:0 0 .42em;color:var(--on-muted);line-height:1.42;max-width:none}
+#heroSub p{margin:0 0 .28em;color:var(--on-muted);line-height:1.38;max-width:none}
 #heroSub p:last-child{margin-bottom:0}
 .scaleVerdict{font-size:.9rem;line-height:1.5;color:var(--ink);max-width:420px;margin:2px auto 10px;padding-top:8px;border-top:1px dashed var(--line)}
 .scaleVerdict b{color:#7a6338;font-weight:600}
