@@ -586,8 +586,10 @@ const OUTSIDE = SPHERES.filter(s=>s.block==='outside');
 
 /* ====== ЛОГИКА ПРОХОЖДЕНИЯ ====== */
 let idx=0; const ans=new Array(SPHERES.length).fill(null);  // 'lack'|'balance'|'overload'
+let autoT=null;  // таймер автоперехода после выбора
 function startQuiz(){ idx=0; go('quiz'); renderQ(); }
 function renderQ(){
+  clearTimeout(autoT);
   const sp=SPHERES[idx], blk=(sp.block==='inside'?'inner':'outer');
   document.getElementById('pbar').style.width=((idx)/SPHERES.length)*100+'%';
   document.getElementById('qcount').textContent='Сфера '+(idx+1)+' из '+SPHERES.length;
@@ -611,6 +613,9 @@ function choose(st){
   ans[idx]=st;
   document.querySelectorAll('#qopts .stateOpt').forEach((b,j)=>b.classList.toggle('sel',ORDER[j]===st));
   document.getElementById('qnext').disabled=false;
+  clearTimeout(autoT);
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  autoT = setTimeout(next, reduce ? 0 : 400);   // автопереход после выбора (пауза — видно выбор)
 }
 function next(){
   if(ans[idx]===null) return;
