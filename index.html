@@ -404,15 +404,18 @@ header p,#heroSub{color:var(--on-muted);margin-top:8px;font-size:.98rem;max-widt
       </button>
       <div class="disclosureBody" id="readsBody">
         <div class="igLock" id="igLock">
-          <div class="igLockTitle">🔒 Разбор по каждой сфере — по подписке</div>
-          <p>Подробные рекомендации по всем твоим сферам открываются после подписки на Instagram. Подпишись на <b>@hd_yulia</b> — там практики, эфиры и поддержка каждый день.</p>
-          <a class="leadBtn igOpenBtn" id="igOpen" href="https://www.instagram.com/hd_yulia/" target="_blank" rel="noopener" onclick="track('ig_click')">Подписаться в Instagram →</a>
-          <button class="igDoneBtn" id="igDone" onclick="unlockReads()">Я подписалась — открыть разбор</button>
+          <div class="igLockTitle">Подробный разбор по каждой сфере</div>
+          <p>Нажми — и откроются рекомендации по каждой твоей сфере: что поддержать, где восстановить баланс, а что уже стало твоей опорой.</p>
+          <button class="leadBtn igOpenBtn" id="igOpen" onclick="unlockReads()" style="border:none;cursor:pointer;font-family:inherit">Открыть разбор →</button>
         </div>
         <div id="readsContent" style="display:none">
           <div class="readsub">Рекомендации — для сфер в дефиците и перегрузе. Сферы в балансе — твоя опора.</div>
           <div id="reads"></div>
           <div id="balBox"></div>
+          <div class="igAfter" style="margin-top:24px;padding-top:20px;border-top:1px solid var(--line);text-align:center">
+            <p style="color:var(--ink);font-size:.98rem;line-height:1.5;margin:0 auto 14px;max-width:440px">Если разбор откликнулся — я делюсь практиками, эфирами и живой поддержкой каждый день в Instagram. Заходи 💛</p>
+            <a class="leadBtn igOpenBtn" href="https://www.instagram.com/hd_yulia/" target="_blank" rel="noopener" onclick="track('ig_click')">Подписаться на @hd_yulia →</a>
+          </div>
         </div>
       </div>
     </div>
