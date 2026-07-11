@@ -400,7 +400,7 @@ header p,#heroSub{color:var(--on-muted);margin-top:8px;font-size:.98rem;max-widt
       <div class="bookEyebrow">твой первый шаг</div>
       <h2 class="serif">С чего начать</h2>
       <p class="ctaLead">Не пытайся менять всё сразу. Посмотри на рекомендации и выбери один шаг, который кажется тебе сейчас самым важным и выполнимым.</p>
-      <p class="ctaSub">Если нужна поддержка или хочешь идти глубже — <a id="tgSub" href="#" target="_blank" rel="noopener">подпишись на мой телеграм-канал</a>.</p>
+      <p class="ctaSub">Если нужна поддержка или хочешь идти глубже — подпишись на мой телеграм-канал.</p>
       <a class="leadBtn firstBtn" id="firstStepBtn" href="#" target="_blank" rel="noopener">Сделать мой первый шаг →</a>
     </div>
     <!-- ШЕР-КАРТОЧКА ДЛЯ STORIES -->
@@ -439,7 +439,6 @@ const SOURCE = (new URLSearchParams(location.search).get('from')||'').slice(0,24
 let LAST = null;
 let SHARE = null;   // данные для шер-карточки Stories
 var _fb=document.getElementById('firstStepBtn'); if(_fb) _fb.href = CONFIG.telegram;
-var _tgSub=document.getElementById('tgSub'); if(_tgSub) _tgSub.href = CONFIG.telegram;
 /* ====== ЗАМОК «Подробно» до подписки на Instagram ====== */
 function applyIgLock(){
   var un = localStorage.getItem('os_ig_unlock')==='1';
