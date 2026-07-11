@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /anketa.html
+Disallow: /mindmap.html
+
+Sitemap: https://hd-yulia.com/sitemap.xml
