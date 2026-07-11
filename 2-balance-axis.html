@@ -247,6 +247,9 @@ header p,#heroSub{color:var(--on-muted);margin-top:8px;font-size:.98rem;max-widt
 .igOpenBtn{display:block;max-width:320px;margin:0 auto 8px;text-decoration:none;text-align:center}
 .igDoneBtn{background:none;border:none;cursor:pointer;font-family:inherit;font-size:.86rem;color:var(--muted);text-decoration:underline;padding:5px}
 .bookAlt a{color:var(--gold-l);text-decoration:underline}
+.ctaSub{font-size:.86rem;color:var(--on-muted);max-width:420px;margin:0 auto 16px;line-height:1.5;text-align:center}
+.ctaSub a{color:var(--gold-l);text-decoration:underline}
+.firstBtn{display:block;max-width:360px;margin:0 auto;text-decoration:none;text-align:center}
 /* ====== БЛОК-СИНТЕЗ: беру ⇄ отдаю ====== */
 .synthBlock{background:linear-gradient(158deg,rgba(167,175,149,.14),rgba(198,165,110,.06));border:1px solid rgba(167,175,149,.32);border-left:3px solid #A7AF95;border-radius:14px;padding:15px 17px;margin:6px 0 15px;font-size:.93rem;line-height:1.62;color:var(--ink)}
 .synthBlock p{margin:0 0 9px}.synthBlock p:last-child{margin-bottom:0}
@@ -397,17 +400,8 @@ header p,#heroSub{color:var(--on-muted);margin-top:8px;font-size:.98rem;max-widt
       <div class="bookEyebrow">твой первый шаг</div>
       <h2 class="serif">С чего начать</h2>
       <p class="ctaLead">Не пытайся менять всё сразу. Посмотри на рекомендации и выбери один шаг, который кажется тебе сейчас самым важным и выполнимым.</p>
-      <div class="leadForm" id="leadForm">
-        <input class="leadInput" id="leadName" type="text" placeholder="Как тебя зовут?" autocomplete="name">
-        <input class="leadInput" id="leadContact" type="text" placeholder="Telegram (@ник) или почта" autocomplete="off">
-        <button class="leadBtn" id="leadBtn" onclick="submitLead()">Выбрать мой первый шаг →</button>
-      </div>
-      <div class="leadDone" id="leadDone">
-        <div class="leadDoneTitle">💛 Спасибо! Заявка у меня.</div>
-        <p>Загляни в Telegram — там поддержка, практики и первый шаг к опоре.</p>
-        <a class="tg" id="tgLink" href="#" target="_blank" rel="noopener">Перейти в Telegram →</a>
-      </div>
-      <div class="bookAlt">Если нужна поддержка или хочешь идти глубже — <a id="tgSub" href="#" target="_blank" rel="noopener">подпишись на мой телеграм-канал</a>.</div>
+      <p class="ctaSub">Если нужна поддержка или хочешь идти глубже — <a id="tgSub" href="#" target="_blank" rel="noopener">подпишись на мой телеграм-канал</a>.</p>
+      <a class="leadBtn firstBtn" id="firstStepBtn" href="#" target="_blank" rel="noopener">Сделать мой первый шаг →</a>
     </div>
     <!-- ШЕР-КАРТОЧКА ДЛЯ STORIES -->
     <div class="card shareCard">
@@ -422,7 +416,7 @@ header p,#heroSub{color:var(--on-muted);margin-top:8px;font-size:.98rem;max-widt
     <div class="tools"><button class="btn" onclick="retake()">↺ Пройти заново</button></div>
   </section>
 
-  <p class="foot">© Юлия · @HD_Yulia · «Ось баланса». Расчёт идёт на твоём экране. Имя и контакт отправляются, только если ты сама нажмёшь кнопку.</p>
+  <p class="foot">© Юлия · @HD_Yulia · «Ось баланса». Расчёт идёт прямо на твоём экране — все ответы остаются у тебя.</p>
 </div>
 
 <!-- оверлей шер-карточки (fallback, если системное меню «Поделиться» недоступно) -->
@@ -444,7 +438,7 @@ const CONFIG = {
 const SOURCE = (new URLSearchParams(location.search).get('from')||'').slice(0,24);
 let LAST = null;
 let SHARE = null;   // данные для шер-карточки Stories
-document.getElementById('tgLink').href = CONFIG.telegram;
+var _fb=document.getElementById('firstStepBtn'); if(_fb) _fb.href = CONFIG.telegram;
 var _tgSub=document.getElementById('tgSub'); if(_tgSub) _tgSub.href = CONFIG.telegram;
 /* ====== ЗАМОК «Подробно» до подписки на Instagram ====== */
 function applyIgLock(){
