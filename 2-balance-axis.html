@@ -239,6 +239,14 @@ header p,#heroSub{color:var(--on-muted);margin-top:8px;font-size:.98rem;max-widt
 #heroSub p:last-child{margin-bottom:0}
 .scaleVerdict{font-size:.9rem;line-height:1.5;color:var(--ink);max-width:420px;margin:2px auto 10px;padding-top:8px;border-top:1px dashed var(--line)}
 .scaleVerdict b{color:#7a6338;font-weight:600}
+/* ====== ЗАМОК «Подробно» до подписки на Instagram ====== */
+.igLock{text-align:center;padding:6px 2px 2px}
+.igLockTitle{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:8px}
+.igLock p{font-size:.9rem;color:var(--muted);line-height:1.5;max-width:410px;margin:0 auto 14px}
+.igLock b{color:var(--ink)}
+.igOpenBtn{display:block;max-width:320px;margin:0 auto 8px;text-decoration:none;text-align:center}
+.igDoneBtn{background:none;border:none;cursor:pointer;font-family:inherit;font-size:.86rem;color:var(--muted);text-decoration:underline;padding:5px}
+.bookAlt a{color:var(--gold-l);text-decoration:underline}
 /* ====== БЛОК-СИНТЕЗ: беру ⇄ отдаю ====== */
 .synthBlock{background:linear-gradient(158deg,rgba(167,175,149,.14),rgba(198,165,110,.06));border:1px solid rgba(167,175,149,.32);border-left:3px solid #A7AF95;border-radius:14px;padding:15px 17px;margin:6px 0 15px;font-size:.93rem;line-height:1.62;color:var(--ink)}
 .synthBlock p{margin:0 0 9px}.synthBlock p:last-child{margin-bottom:0}
@@ -364,9 +372,17 @@ header p,#heroSub{color:var(--on-muted);margin-top:8px;font-size:.98rem;max-widt
         <span class="chev">▾</span>
       </button>
       <div class="disclosureBody" id="readsBody">
-        <div class="readsub">Рекомендации — для сфер в дефиците и перегрузе. Сферы в балансе — твоя опора.</div>
-        <div id="reads"></div>
-        <div id="balBox"></div>
+        <div class="igLock" id="igLock">
+          <div class="igLockTitle">🔒 Разбор по каждой сфере — по подписке</div>
+          <p>Подробные рекомендации по всем твоим сферам открываются после подписки на Instagram. Подпишись на <b>@hd_yulia</b> — там практики, эфиры и поддержка каждый день.</p>
+          <a class="leadBtn igOpenBtn" id="igOpen" href="https://www.instagram.com/hd_yulia/" target="_blank" rel="noopener">Подписаться в Instagram →</a>
+          <button class="igDoneBtn" id="igDone" onclick="unlockReads()">Я подписалась — открыть разбор</button>
+        </div>
+        <div id="readsContent" style="display:none">
+          <div class="readsub">Рекомендации — для сфер в дефиците и перегрузе. Сферы в балансе — твоя опора.</div>
+          <div id="reads"></div>
+          <div id="balBox"></div>
+        </div>
       </div>
     </div>
 
@@ -381,7 +397,6 @@ header p,#heroSub{color:var(--on-muted);margin-top:8px;font-size:.98rem;max-widt
       <div class="bookEyebrow">твой первый шаг</div>
       <h2 class="serif">С чего начать</h2>
       <p class="ctaLead">Не пытайся менять всё сразу. Посмотри на рекомендации и выбери один шаг, который кажется тебе сейчас самым важным и выполнимым.</p>
-      <p class="ctaLead">Потому что один небольшой шаг, который ты действительно сделаешь, может изменить больше, чем большой план, который так и останется в голове.</p>
       <div class="leadForm" id="leadForm">
         <input class="leadInput" id="leadName" type="text" placeholder="Как тебя зовут?" autocomplete="name">
         <input class="leadInput" id="leadContact" type="text" placeholder="Telegram (@ник) или почта" autocomplete="off">
@@ -393,7 +408,7 @@ header p,#heroSub{color:var(--on-muted);margin-top:8px;font-size:.98rem;max-widt
         <p>Загляни в Telegram — там поддержка, практики и первый шаг к опоре.</p>
         <a class="tg" id="tgLink" href="#" target="_blank" rel="noopener">Перейти в Telegram →</a>
       </div>
-      <div class="bookAlt">А захочешь идти глубже — есть <b>программы</b>, личное сопровождение и живые встречи.</div>
+      <div class="bookAlt">Если нужна поддержка или хочешь идти глубже — <a id="tgSub" href="#" target="_blank" rel="noopener">подпишись на мой телеграм-канал</a>.</div>
     </div>
     <!-- ШЕР-КАРТОЧКА ДЛЯ STORIES -->
     <div class="card shareCard">
@@ -431,6 +446,15 @@ const SOURCE = (new URLSearchParams(location.search).get('from')||'').slice(0,24
 let LAST = null;
 let SHARE = null;   // данные для шер-карточки Stories
 document.getElementById('tgLink').href = CONFIG.telegram;
+var _tgSub=document.getElementById('tgSub'); if(_tgSub) _tgSub.href = CONFIG.telegram;
+/* ====== ЗАМОК «Подробно» до подписки на Instagram ====== */
+function applyIgLock(){
+  var un = localStorage.getItem('os_ig_unlock')==='1';
+  var lock=document.getElementById('igLock'), body=document.getElementById('readsContent');
+  if(lock) lock.style.display = un?'none':'';
+  if(body) body.style.display = un?'':'none';
+}
+function unlockReads(){ localStorage.setItem('os_ig_unlock','1'); applyIgLock(); }
 
 /* сегментные версии заголовка (крючок на входе) */
 const SEGMENTS = {
@@ -871,6 +895,7 @@ function showResult(){
     : '';
   var _rb=document.getElementById('readsBody'); if(_rb) _rb.classList.remove('open');
   var _rt=document.getElementById('readsToggle'); if(_rt) _rt.setAttribute('aria-expanded','false');
+  applyIgLock();
 
   /* данные для отправки */
   const answersObj={}; SPHERES.forEach((sp,i)=>answersObj[sp.key]=ans[i]);
