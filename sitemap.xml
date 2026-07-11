@@ -4,24 +4,18 @@
     <loc>https://hd-yulia.com/</loc>
     <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hd-yulia.com/2-balance-axis.html</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://hd-yulia.com/1-energy-account.html</loc>
     <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://hd-yulia.com/3-six-states.html</loc>
     <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 </urlset>
