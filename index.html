@@ -406,7 +406,7 @@ header p,#heroSub{color:var(--on-muted);margin-top:8px;font-size:.98rem;max-widt
         <div class="igLock" id="igLock">
           <div class="igLockTitle">🔒 Разбор по каждой сфере — по подписке</div>
           <p>Подробные рекомендации по всем твоим сферам открываются после подписки на Instagram. Подпишись на <b>@hd_yulia</b> — там практики, эфиры и поддержка каждый день.</p>
-          <a class="leadBtn igOpenBtn" id="igOpen" href="https://www.instagram.com/hd_yulia/" target="_blank" rel="noopener">Подписаться в Instagram →</a>
+          <a class="leadBtn igOpenBtn" id="igOpen" href="https://www.instagram.com/hd_yulia/" target="_blank" rel="noopener" onclick="track('ig_click')">Подписаться в Instagram →</a>
           <button class="igDoneBtn" id="igDone" onclick="unlockReads()">Я подписалась — открыть разбор</button>
         </div>
         <div id="readsContent" style="display:none">
@@ -429,7 +429,7 @@ header p,#heroSub{color:var(--on-muted);margin-top:8px;font-size:.98rem;max-widt
       <h2 class="serif">С чего начать</h2>
       <p class="ctaLead">Не пытайся менять всё сразу. Посмотри на рекомендации и выбери один шаг, который кажется тебе сейчас самым важным и выполнимым.</p>
       <p class="ctaSub">Если нужна поддержка или хочешь идти глубже — подпишись на мой телеграм-канал.</p>
-      <a class="leadBtn firstBtn" id="firstStepBtn" href="#" target="_blank" rel="noopener">Сделать мой первый шаг →</a>
+      <a class="leadBtn firstBtn" id="firstStepBtn" href="#" target="_blank" rel="noopener" onclick="track('tg_click')">Сделать мой первый шаг →</a>
     </div>
     <!-- ШЕР-КАРТОЧКА ДЛЯ STORIES -->
     <div class="card shareCard">
@@ -467,6 +467,11 @@ const SOURCE = (new URLSearchParams(location.search).get('from')||'').slice(0,24
 let LAST = null;
 let SHARE = null;   // данные для шер-карточки Stories
 var _fb=document.getElementById('firstStepBtn'); if(_fb) _fb.href = CONFIG.telegram;
+/* ====== ТРЕКИНГ СОБЫТИЙ ВОРОНКИ (Яндекс.Метрика + Google Analytics) ====== */
+function track(goal){
+  try{ if(window.ym) ym(110591716,'reachGoal',goal); }catch(e){}
+  try{ if(window.gtag) gtag('event',goal); }catch(e){}
+}
 /* ====== ЗАМОК «Подробно» до подписки на Instagram ====== */
 function applyIgLock(){
   var un = localStorage.getItem('os_ig_unlock')==='1';
@@ -474,7 +479,7 @@ function applyIgLock(){
   if(lock) lock.style.display = un?'none':'';
   if(body) body.style.display = un?'':'none';
 }
-function unlockReads(){ localStorage.setItem('os_ig_unlock','1'); applyIgLock(); }
+function unlockReads(){ track('ig_unlock'); localStorage.setItem('os_ig_unlock','1'); applyIgLock(); }
 
 /* сегментные версии заголовка (крючок на входе) */
 const SEGMENTS = {
@@ -630,7 +635,7 @@ const OUTSIDE = SPHERES.filter(s=>s.block==='outside');
 /* ====== ЛОГИКА ПРОХОЖДЕНИЯ ====== */
 let idx=0; const ans=new Array(SPHERES.length).fill(null);  // 'lack'|'balance'|'overload'
 let autoT=null;  // таймер автоперехода после выбора
-function startQuiz(){ idx=0; go('quiz'); renderQ(); }
+function startQuiz(){ track('quiz_start'); idx=0; go('quiz'); renderQ(); }
 function renderQ(){
   clearTimeout(autoT);
   const sp=SPHERES[idx], blk=(sp.block==='inside'?'inner':'outer');
@@ -662,7 +667,8 @@ function choose(st){
 }
 function next(){
   if(ans[idx]===null) return;
-  if(idx<SPHERES.length-1){ idx++; renderQ(); window.scrollTo({top:0,behavior:'smooth'}); }
+  if(idx<SPHERES.length-1){ idx++; renderQ(); window.scrollTo({top:0,behavior:'smooth'});
+    if(idx===3) track('quiz_25'); else if(idx===6) track('quiz_50'); else if(idx===9) track('quiz_75'); }
   else finishQuiz();
 }
 function back(){ if(idx>0){ idx--; renderQ(); window.scrollTo({top:0,behavior:'smooth'}); } }
@@ -840,6 +846,7 @@ function buildSynthesis(inside,outside,IS,OS,total){
 }
 
 function showResult(){
+  track('result_view');
   const inside=countBlock(INSIDE), outside=countBlock(OUTSIDE);
   const total={lack:inside.lack+outside.lack, balance:inside.balance+outside.balance, overload:inside.overload+outside.overload};
   /* взвешенные баллы (спека AI-аналитика): внутри дефицит −10 / баланс +15 / перегруз 0; вовне −5 / +15 / −10 */
